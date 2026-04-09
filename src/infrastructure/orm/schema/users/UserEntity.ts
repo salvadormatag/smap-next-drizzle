@@ -1,6 +1,9 @@
 import {pgTable, text, timestamp, varchar} from "drizzle-orm/pg-core";
 import {AuditsFactory, IdentifiersFactory} from "@/infrastructure/orm/schema";
 
+export type createdUser = typeof UserEntity.$inferInsert;
+export type fullUser = typeof UserEntity.$inferSelect;
+
 export const UserEntity = pgTable(
     "users",
     {

@@ -1,18 +1,22 @@
 import {db} from "@/infrastructure/orm/db";
 import {UserEntity} from "@/infrastructure/orm/schema";
 import {eq} from "drizzle-orm";
+import {fullUser} from "@/infrastructure/orm/schema/users/UserEntity";
 
-export async function testAnonymization() {
+export async function testAnonymization(pk: number) {
     console.log("🧪 Iniciant test de validació del Trigger...");
     
     // 1. Busquem un usuari que sabem que existeix (creat al seed)
-    const userToTest: any = await db.query.UserEntity.findFirst({
-        where: (users, { eq }) => eq(users.pk, userToTest.pk)
-    });
+    const users: fullUser[] = await db
+        .select()
+        .from(UserEntity)
+        .where(eq(UserEntity.pk, pk));
     
-    if (!userToTest) {
+    if (!users) {
         throw new Error("❌ Test fallit: No s'ha trobat l'usuari 'User 2' per testejar.");
     }
+    
+    const userToTest = users[0];
     
     console.log(`   - Intentant esborrar l'usuari: ${userToTest.name} (PK: ${userToTest.pk})`);
     

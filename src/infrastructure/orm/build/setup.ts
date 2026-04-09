@@ -10,7 +10,7 @@ async function main() {
     syncSchema();
     await runSeeds();
     await applyCustomSQL();
-    await testAnonymization();
+    await testAnonymization(3);
     
     // @todo -> Executar un test que comprovi el correcte funcionament de la funció i el trigger
 }
