@@ -4,13 +4,15 @@ import {
     syncSchema,
     testAnonymization,
 } from "@/infrastructure/orm/build";
+import {testUpdateDateAnonymization} from "@/infrastructure/orm/build/testingSQLTools";
 
 
 async function main() {
     syncSchema();
     await runSeeds();
     await applyCustomSQL();
-    await testAnonymization(3);
+    await testAnonymization();
+    await testUpdateDateAnonymization();
     
     // @todo -> Executar un test que comprovi el correcte funcionament de la funció i el trigger
 }
