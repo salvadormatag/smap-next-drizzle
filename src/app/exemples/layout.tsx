@@ -1,3 +1,6 @@
+import NavigatorBundle from "@/bundles/navigator/NavigatorBundle";
+import {QaNavItems} from "@/app/qa/qaNavItems";
+
 export default function Layout({children}: { children: React.ReactNode }) {
     return (
         <div className="flex h-full flex-col md:flex-row md:overflow-hidden">

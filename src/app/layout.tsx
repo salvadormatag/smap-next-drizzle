@@ -1,12 +1,16 @@
-import { Montserrat } from 'next/font/google';
-import "./globals.css";
 import type { Metadata } from "next";
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-montserrat', // Definim la variable CSS
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +29,7 @@ export default function RootLayout({
     <html
         suppressHydrationWarning
       lang="ca"
-      className={`${montserrat.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col dark">
         {children}

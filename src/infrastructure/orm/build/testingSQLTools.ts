@@ -5,9 +5,9 @@ import {fullUser} from "@/infrastructure/orm/schema/users/UserEntity";
 import {
     getDateFormatWebFromDB,
     getFullDateFormatWebFromDB,
-    SmapDateUtils,
-    SmapDateParser
-} from "@/Smap/dates";
+    getTempsTranscorregut,
+    parseWebDateToDate
+} from "@/sdk/dates";
 
 const USER_PK: number = 3;
 
@@ -54,7 +54,7 @@ export async function testUpdateDateAnonymization() {
     
     // Actualitzem la data de la seva anonimització
     const dataToSet = {
-        unsubscribedAt: SmapDateParser.parseWebDateToDate("15/04/2026 15:45:16")
+        unsubscribedAt: parseWebDateToDate("15/04/2026 15:45:16")
     }
     
     // Executem el update
@@ -67,14 +67,14 @@ export async function testUpdateDateAnonymization() {
     
     const nextDate = getFullDateFormatWebFromDB(userToTestUpdated.unsubscribedAt);
     
-    const parsedPrev = SmapDateParser.parseWebDateToDate(prevDate);
-    const parsedNext = SmapDateParser.parseWebDateToDate(nextDate);
+    const parsedPrev = parseWebDateToDate(prevDate);
+    const parsedNext = parseWebDateToDate(nextDate);
     
     if (!parsedPrev || !parsedNext) {
         throw new Error(`❌ Test fallit: No s'han pogut parsejar les dates a avaluar.`);
     }
     
-    const diffDays = SmapDateUtils.getTempsTranscorregut(parsedPrev, parsedNext);
+    const diffDays = getTempsTranscorregut(parsedPrev, parsedNext);
     const expectedDays = 5;
     const evalConditions = parsedNext < parsedPrev && expectedDays === diffDays;
     
