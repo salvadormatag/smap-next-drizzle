@@ -1,0 +1,3 @@
+packages:
+  - '.'           # L'app de Next.js (l'arrel)
+  - 'src/packages/*'  # Qualsevol carpeta dins de packages serà un paquet propi

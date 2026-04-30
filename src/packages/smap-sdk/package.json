@@ -1,0 +1,53 @@
+{
+  "name": "@smap-dev/sdk",
+  "version": "3.0.0-dev",
+  "description": "Caixa d'eines personal de desenvolupament",
+  "author": "Salvador Mata Garcia - https://github.com/salvadormatag/smap-sdk",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LLEGEIX-ME.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --watch --dts",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "sdk",
+    "utils",
+    "nextjs",
+    "auth"
+  ],
+  "peerDependencies": {
+    "next": ">=16.0.0",
+    "react": ">=19.0.0"
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^2.0.2",
+    "@oslojs/otp": "^1.1.0",
+    "@paralleldrive/cuid2": "^3.3.0",
+    "country-flag-icons": "^1.6.16",
+    "date-fns": "^4.1.0",
+    "jose": "^6.2.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "exports": {
+    "./navigator": "./src/uix/navigator/index.ts",
+    "./auth": "./src/auth/index.ts",
+    "./instants": "./src/instants/index.ts"
+  }
+}

@@ -16,7 +16,7 @@
     "smap": "tsx src/lab/tests/smap.ts"
   },
   "dependencies": {
-    "@smap-dev/sdk": "^1.0.0",
+    "@smap-dev/sdk": "workspace:*",
     "@tiptap/core": "^3.11.1",
     "@tiptap/extension-code-block-lowlight": "^3.11.1",
     "@tiptap/extension-document": "^3.11.1",
@@ -37,6 +37,7 @@
     "@tiptap/react": "^3.11.1",
     "@tiptap/starter-kit": "^3.11.1",
     "argon2": "^0.44.0",
+    "babel-plugin-react-compiler": "^1.0.0",
     "bluebird": "^3.7.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

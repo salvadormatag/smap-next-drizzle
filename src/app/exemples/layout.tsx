@@ -1,13 +1,33 @@
-import NavigatorBundle from "@/bundles/navigator/NavigatorBundle";
-import {QaNavItems} from "@/app/qa/qaNavItems";
+"use client";
 
-export default function Layout({children}: { children: React.ReactNode }) {
+import {useState} from "react";
+import {SmapNavigatorComponent, useSmapNavigator} from "@smap-dev/sdk/uix";
+
+export default function ExemplesLayout({ children }: { children: React.ReactNode }) {
+    const [currentPage, setCurrentPage] = useState('exemples');
+    // Aquí crearies la instància per a la Navbar superior
+    // que porta a Exemple A, Exemple B, etc.
+    const navBar = useSmapNavigator({
+        mode: 'navbar',
+        items: [
+            { id: 'exemples', label: "Espai general d'exemples" },
+            { id: 'exemple/instants', label: "Exemples de Instants" }
+        ]
+    });
+    
     return (
-        <div className="flex h-full flex-col md:flex-row md:overflow-hidden">
-            <div className="w-full flex-none md:w-64">
-                <NavigatorBundle mode={"sidebar"} items={QaNavItems}/>
+        <div className="flex flex-col h-screen">
+            <header className="h-16 border-b">
+                <SmapNavigatorComponent
+                    navigator={navBar}
+                    currentPage={currentPage}
+                    onPageChange={setCurrentPage}
+                />
+            </header>
+            
+            <div className="flex flex-1 overflow-hidden">
+                {children} {/* Aquí es carregarà el contingut de cada exemple */}
             </div>
-            <div className="grow p-6 md:overflow-y-auto md:p-12">{children}</div>
         </div>
     );
 }
