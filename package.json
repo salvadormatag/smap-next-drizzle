@@ -16,6 +16,7 @@
     "smap": "tsx src/lab/tests/smap.ts"
   },
   "dependencies": {
+    "@smap-dev/sdk": "^1.0.0",
     "@tiptap/core": "^3.11.1",
     "@tiptap/extension-code-block-lowlight": "^3.11.1",
     "@tiptap/extension-document": "^3.11.1",
