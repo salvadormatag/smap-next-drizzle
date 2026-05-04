@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ca"
       className={`${montserrat.variable} h-full antialiased dark`}
+          suppressHydrationWarning={true}
     >
       <body className="min-h-full flex flex-col dark">
         <div className="flex flex-col w-full">

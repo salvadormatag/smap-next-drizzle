@@ -1,5 +1,5 @@
 import styles from "../styles/navigators.module.css";
-import {MenuItemsController} from "./MenuItemsController";
+import {MenuItemsController} from "../MenuItemsController";
 import {NavbarComponentProps} from "../libs/navigator.types";
 
 
