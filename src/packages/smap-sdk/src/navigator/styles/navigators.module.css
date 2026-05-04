@@ -1,0 +1,131 @@
+:root {
+    --navigator: #0088cc;
+    --navigator-border: 2px solid #1b1919;
+    --navigator-separator: 3px solid #243239;
+    --navigator-color: #fff;
+    --navigator-gray: rgba(85, 90, 94, 0.54);
+}
+
+.navigator_navbar {
+    border-bottom: var(--navigator-separator);
+    position: relative;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    color: var(--navigator-color);
+    background: var(--navigator);
+}
+
+.navigator_sidebar {
+    max-width: 300px;
+}
+
+/**
+ * Contenidor de ítems de navegació en el toolbar
+ */
+.navigator_navbar .ItemNavigator {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+/**
+ * Contenidor de ítems de navegació en el sidebar
+ */
+.navigator_sidebar .ItemNavigator {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+/**
+ * Fletxeta per indicar menú desplegable
+ */
+.iconaDropDown {
+    font-size: 12px;
+}
+
+/**
+ * Element Contenidor d'un link de menú
+ */
+.MenuItemLink {
+    position: relative;
+    padding: 7px 10px 8px 5px;
+}
+.navigator_sidebar .MenuItemLink {
+    cursor: pointer;
+}
+
+.navigator_navbar .MenuItemLink:hover,
+.navigator_sidebar .MenuItemLink:hover,
+.navigator_sidebar .MenuSubmenuOptions .MenuItemLink:hover {
+    background-color: #e6e3e3;
+    color: #1b1919;
+}
+
+.MenuItemLink[data-active="true"],
+.MenuItemLink[data-parent="true"] {
+    background-color: #e6e3e3;
+    color: #1b1919;
+}
+
+/**
+ * Dimensions i estils de la caixa contenidora dels ítems d'un submenu
+ */
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions {
+    z-index: 10;
+    padding: 0;
+    background: var(--navigator-gray);
+    width: 100%;
+    position: relative;
+    left: 15px !important;
+}
+
+.SubmenuContainer {
+    position: relative;
+    display: block;
+}
+
+.navigator_navbar .ItemNavigator .MenuSubmenuOptions {
+    z-index: 10;
+    padding: 0;
+    background: #76adc8;
+    position: absolute;
+    width: max-content;
+    left: 0 !important;
+    border: var(--navigator-border);
+}
+
+.MenuLink {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/**
+ * Posicionament dels submenus en funció del navegador (sidebar/toolbar)
+ */
+.navigator_sidebar .MenuSubmenuOptions {
+    top: calc(100%);
+    left: calc(50%) !important;
+}
+
+.navigator_toolbar .MenuSubmenuOptions {
+    top: calc(100%);
+    left: calc(100%);
+    border-top: 3px solid #3c2b81 !important;
+}
+
+/**
+ * Icona dels ítems dels menus
+ */
+.navIcon {
+    width: 16px;
+    height: 16px;
+    color: inherit;
+    margin-right: 5px;
+    display: inline-flex;
+}
+

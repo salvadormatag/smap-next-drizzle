@@ -1,0 +1,1 @@
+export {LocalPersistence} from "./LocalPersistence";

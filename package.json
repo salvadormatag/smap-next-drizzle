@@ -58,7 +58,7 @@
     "react-dom": "19.2.5",
     "react-hotkeys-hook": "^5.2.1",
     "slugify": "^1.6.6",
-    "tailwind-merge": "^3.4.0",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss-animate": "^1.0.7",
     "xml2js": "^0.6.2",
     "zod": "^3.25.76"

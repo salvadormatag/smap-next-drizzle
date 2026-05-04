@@ -10,7 +10,7 @@ export default function Home() {
           realitzar operacions CRUD a una BD PostgreSQL.
         </p>
         <p>
-          Per veure exemples de funcionalitats, <Link href={"/exemples"} className="text-corpo">anar a aquí</Link>
+          Per veure exemples de funcionalitats, <Link href={"/sdk-reference"} className="text-corpo">anar a aquí</Link>
         </p>
       </main>
     </div>

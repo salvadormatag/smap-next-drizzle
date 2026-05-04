@@ -1,0 +1,63 @@
+"use client"
+
+import styles from "../styles/navigators.module.css";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import {RenderItemsProps} from "../libs/navigator.types";
+import MenuItemLink from "./MenuItemLink";
+import MenuItemSubmenu from "./MenuItemSubmenu";
+
+export const MenuItemsController: React.FC<RenderItemsProps> = ({ items, mode }) => {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
+    const handleItemClick = useCallback((index: number) => {
+        setOpenIndex(prevIndex => (prevIndex === index ? null : index));
+    }, []);
+
+    const closeMenu = useCallback(() => {
+        if (mode !== "sidebar"){
+            setOpenIndex(null);
+        }
+    }, [mode]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node) && mode !== "sidebar" ) {
+                closeMenu();
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [closeMenu, mode]); // closeMenu és estable gràcies a useCallback
+
+    return (
+        <div ref={menuRef} className={styles.ItemNavigator}>
+            {items.map((item, index) => {
+                if (!('options' in item) ) {
+                    return (
+                        <MenuItemLink
+                            key={index}
+                            label={item.label}
+                            href={item.slug}
+                            icon={item?.icon}
+                            mode={mode}
+                        />
+                    );
+                }
+
+                return (
+                    <MenuItemSubmenu
+                        key={index}
+                        item={item}
+                        menu={item.slug}
+                        href={item.slug}
+                        index={index}
+                        isOpen={openIndex === index}
+                        onClick={handleItemClick}
+                        closeMenu={closeMenu}
+                        mode={mode}
+                    />
+                )
+            })}
+        </div>
+    );
+}
