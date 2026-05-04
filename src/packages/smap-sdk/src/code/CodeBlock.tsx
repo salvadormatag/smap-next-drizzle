@@ -42,7 +42,9 @@ export async function CodeBlock({ code, lang = 'ts', theme = 'dark-plus' }: Prop
           margin-right: 1.5rem;
           display: inline-block;
           text-align: right;
-          color: rgba(236, 241, 243, 0.6); /* Color tipus JetBrains */
+          color: rgba(236, 241, 243, 0.6);
+          border-right: 1px solid rgba(236, 241, 243, 0.6);
+          padding-right: 4px;
         }
       `}} />
             <div dangerouslySetInnerHTML={{ __html: html }} />

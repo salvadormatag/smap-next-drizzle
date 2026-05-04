@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import type {Metadata} from "next";
+import {Montserrat} from "next/font/google";
 import "./globals.css";
-import {SmapNavbar} from "@smap-dev/sdk/navigator";
+import {NavigatorComponent, NavigatorComponentProps} from "@smap-dev/sdk/navigator";
 import {LlistatItemsMenuLlocWeb} from "@/app/lib/ItemsNavigator";
 
 const montserrat = Montserrat({
@@ -23,6 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  const props: NavigatorComponentProps = {
+    items: LlistatItemsMenuLlocWeb,
+    features: {
+      opened: false,
+      collapsed: true,
+      model: "NAVBAR"
+    },
+  };
+
   return (
     <html lang="ca"
       className={`${montserrat.variable} h-full antialiased dark`}
@@ -30,7 +39,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col dark">
         <div className="flex flex-col w-full">
-          <SmapNavbar items={LlistatItemsMenuLlocWeb} />
+          <NavigatorComponent {...props} />
           {children}
         </div>
       </body>

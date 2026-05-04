@@ -1,31 +1,35 @@
 "use client";
 
-import {MenuItemLinkActiveProps} from "../libs/navigator.types";
 import styles from "../styles/navigators.module.css";
 import Link from "next/link";
-import MenuItemIcon from "../components/MenuItemIcon";
+import {MenuItemIcon} from "../components";
 import {usePathname} from "next/navigation";
-import {isCandidateToActive} from "../libs/smap.navigator.utils";
+import {isCandidateToActive} from "../libs/navigator.utils";
+import {
+    RenderItemNavigatorProps
+} from "@smap-dev/sdk/navigator/libs/navigator.internal.types";
 
 
-export default function MenuItemLink(props: MenuItemLinkActiveProps) {
+export function MenuItemLink(props: RenderItemNavigatorProps) {
 
-    const {label, href, icon, onClick, mode} = props;
+    const {index, item, features} = props;
     const pathname = usePathname();
-    console.log("MenuItemLink", pathname);
-    const isActive = isCandidateToActive(pathname, href);
+    const isActive = isCandidateToActive(pathname, item.slug);
     const paginaActiva = "marcadorPaginaActiva";
 
     const iconLink = {
-        icon: isActive ? paginaActiva : icon,
+        icon: isActive ? paginaActiva : item.icon,
         styles: isActive ? "active" : "",
     };
 
     return (
-        <div className={styles.MenuItemLink} onClick={onClick} data-active={isActive}>
-            <Link href={href} className={styles.MenuLink}>
+        <div className={styles.MenuItemLink}
+             data-active={isActive}
+             data-renderitzat={"MenuItemLink"}
+        >
+            <Link href={item.slug} className={styles.MenuLink}>
                 <MenuItemIcon iconKey={iconLink?.icon || "bug"} />
-                {label}
+                {item.label}
             </Link>
         </div>
     );

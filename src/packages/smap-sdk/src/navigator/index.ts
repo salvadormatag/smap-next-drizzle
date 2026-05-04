@@ -1,2 +1,3 @@
-export {SmapSidebar, SmapNavbar} from "./components";
-export type {MenuItemProps} from "./libs/navigator.types";
+export {NavigatorComponent} from "./components";
+export type {MenuItem, NavigatorComponentProps, MenuItemIconProps} from "./libs";
+export {MenuItemTypes} from "./libs";

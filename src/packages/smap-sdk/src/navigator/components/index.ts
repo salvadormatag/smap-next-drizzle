@@ -1,2 +1,4 @@
-export {SmapSidebar} from "./SmapSidebar";
-export {SmapNavbar} from "./SmapNavbar";
+export {NavigatorComponent} from "./NavigatorComponent";
+export {MenuItemLink} from "./MenuItemLink";
+export {MenuItemSubmenu} from "./MenuItemSubmenu";
+export {MenuItemIcon} from "./MenuItemIcon";
