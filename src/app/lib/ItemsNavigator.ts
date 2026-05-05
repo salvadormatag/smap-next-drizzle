@@ -26,7 +26,7 @@ export const LlistatItemsMenuLlocWeb: MenuItem[] = [
         label: "APIS",
         slug: "/apis",
         icon: "apis",
-        type: MenuItemTypes.LINK_WITH_OPTIONS,
+        type: MenuItemTypes.ONLY_OPTIONS,
         options: [
             {
                 label: "Serveis hidraulics",

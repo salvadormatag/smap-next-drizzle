@@ -29,7 +29,11 @@ export function MenuItemSubmenu(props: SubmenuProps) {
                     >
                         <Link href={option.slug}
                               className={styles.MenuLink}
-                              onClick={onClick}
+                              onClick={() => {
+                                  if (onClick) {
+                                      onClick(subIndex);
+                                  }
+                              }}
                         >
                             <MenuItemIcon iconKey={iconLink?.icon || "bug"} />
                             {option.label}

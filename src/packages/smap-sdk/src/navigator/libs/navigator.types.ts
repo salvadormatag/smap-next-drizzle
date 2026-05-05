@@ -56,8 +56,6 @@ export interface MenuItem {
     options?: MenuItem[];
     // Opcionalment, pot renderitzar una icona (@heroicons/react/24/outline)
     icon?: IconKey | "bug";
-    // Handler per a gestionar les interaccions d'usuari
-    onClick?: (index: number) => void; // Opcional per tancar el menú quan es clica
 }
 
 /**

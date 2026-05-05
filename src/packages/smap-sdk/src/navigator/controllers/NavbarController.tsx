@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
                         <Link
                             href={item.slug}
                             onClick={(e) => {
-                                if (item.type !== MenuItemTypes.SINGLE_LINK) {
+                                if (item.type === MenuItemTypes.ONLY_OPTIONS) {
                                     e.preventDefault();
                                 }
                                 handleLinkClick(index);
