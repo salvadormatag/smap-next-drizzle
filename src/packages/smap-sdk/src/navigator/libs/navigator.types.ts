@@ -1,10 +1,3 @@
-/**
- * export {NavigatorComponent} from "./components";
- * export type {MenuItem, NavigatorComponentProps} from "./libs/navigator.types";
- * export {MenuItemTypes} from "./libs/navigator.types";
- */
-
-
 import {IconKey} from "../libs/NavigatorIconsLibrary";
 
 /**
@@ -74,4 +67,9 @@ export interface MenuItem {
 export interface MenuItemIconProps {
     iconKey: IconKey;
     className?: string;
+}
+
+export interface SubmenuProps {
+    item: MenuItem;
+    onClick?: (index: number) => void;
 }

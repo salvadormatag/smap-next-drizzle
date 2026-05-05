@@ -34,6 +34,18 @@ export const LlistatItemsMenuLlocWeb: MenuItem[] = [
                 icon: "apis",
                 type: MenuItemTypes.SINGLE_LINK,
             },
+            {
+                label: "Serveis postals",
+                slug: "/apis/serveis-postals",
+                icon: "apis",
+                type: MenuItemTypes.SINGLE_LINK,
+            },
+            {
+                label: "Conversió PDF a JSON",
+                slug: "/apis/conversio-pdf-json",
+                icon: "apis",
+                type: MenuItemTypes.SINGLE_LINK,
+            },
         ]
     },
 ];

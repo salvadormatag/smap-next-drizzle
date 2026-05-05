@@ -1,6 +1,6 @@
-import {NavigatorComponentProps} from "@smap-dev/sdk/navigator/libs/navigator.types";
-import styles from "@smap-dev/sdk/navigator/styles/navigators.module.css";
-import {NavigatorController} from "@smap-dev/sdk/navigator/NavigatorController";
+import {NavigatorComponentProps} from "../libs";
+import styles from "../styles/navigators.module.css";
+import {Navbar, Sidebar} from "../controllers";
 
 export function NavigatorComponent(props: NavigatorComponentProps) {
 
@@ -11,7 +11,11 @@ export function NavigatorComponent(props: NavigatorComponentProps) {
 
     return (
         <div className={css}>
-            <NavigatorController {...props} />
+            {
+                features.model === "NAVBAR"
+                    ? <Navbar {...props} />
+                    : <Sidebar {...props} />
+            }
         </div>
     );
 }
