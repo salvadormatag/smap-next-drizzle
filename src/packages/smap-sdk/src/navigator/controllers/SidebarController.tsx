@@ -1,9 +1,11 @@
 "use client"
 
 import React, {useState, useMemo} from 'react';
-import {NavigatorComponentProps} from '../libs';
+import {isCandidateToActive, MenuItemTypes, NavigatorComponentProps} from '../libs';
 import {usePathname} from "next/navigation";
 import styles from "@smap-dev/sdk/navigator/styles/navigators.module.css";
+import Link from "next/link";
+import {MenuItemIcon, MenuItemSubmenu} from "@smap-dev/sdk/navigator/components";
 
 export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     
@@ -22,7 +24,12 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     
     // 3. Decidim quin índex es renderitza com a obert:
     // Prioritat: 1. El que l'usuari ha clicat manualment | 2. El que toca per URL (F5)
-    const openIndex = manualIndex !== null ? manualIndex : (activeParentIndex !== -1 ? activeParentIndex : null);
+    const openIndex = manualIndex !== null
+        ? manualIndex
+        : (activeParentIndex !== -1
+            ? activeParentIndex
+            : null
+        );
     
     const handleToggle = (index: number) => {
         // Si cliquem el que ja està obert, el tanquem manualment posant un valor que no sigui cap índex (ex: -1).
@@ -34,29 +41,42 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     };
     
     return (
-        <div  className={styles.navigator_sidebar}>
-            {items.map((item, index) => {
-                // Un ítem està obert si l'usuari l'ha obert manualment
-                // O si és el que toca per l'URL actual (només en el primer render).
-                const isItemOpen = openIndex === index;
-                
-                return (
-                    <div key={index}>
-                        <div onClick={() => handleToggle(index)}>
-                            <a href={item.slug}>{item.label}</a>
+        <div className={styles.ItemNavigator}>
+            {
+                items.map((item, index) => {
+                    // Un ítem està obert si l'usuari l'ha obert manualment
+                    // O si és el que toca per l'URL actual (només en el primer render).
+                    const isItemOpen = openIndex === index;
+                    const isActive = isCandidateToActive(pathname, item.slug);
+                    const paginaActiva = "marcadorPaginaActiva";
+                    const iconLink = {
+                        icon: isActive ? paginaActiva : item.icon,
+                        styles: isActive ? "active" : "",
+                    };
+                    const submenuProps = {
+                        item: item,
+                    };
+                    
+                    return (
+                        <div key={index} className={styles.MenuItemLinkSidebar} data-active={isActive}>
+                            <div
+                                 className={styles.MenuItemLink}
+                                 data-active={isActive}
+                            >
+                                <Link href={item.slug}>
+                                    <MenuItemIcon iconKey={iconLink?.icon || "bug"} />
+                                    {item.label}
+                                </Link>
+                            </div>
+                            {
+                                isItemOpen && item.options && (
+                                    <MenuItemSubmenu {...submenuProps} />
+                                )
+                            }
                         </div>
-                        {isItemOpen && item.options && (
-                            <ul>
-                                {item.options.map(opt => (
-                                    <li key={opt.slug}>
-                                        <a href={opt.slug}>{opt.label}</a>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                );
-            })}
+                    );
+                })
+            }
         </div>
     );
 };

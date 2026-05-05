@@ -55,6 +55,9 @@
 .navigator_sidebar .MenuItemLink {
     cursor: pointer;
 }
+.navigator_sidebar .MenuItemLinkSidebar[data-active="true"]{
+    border: 1px solid #fff;
+}
 
 .navigator_navbar .MenuItemLink:hover,
 .navigator_sidebar .MenuItemLink:hover,
@@ -73,12 +76,15 @@
  * Dimensions i estils de la caixa contenidora dels ítems d'un submenu
  */
 .navigator_sidebar .ItemNavigator .MenuSubmenuOptions {
-    z-index: 10;
-    padding: 0;
-    background: var(--navigator-gray);
-    width: 100%;
     position: relative;
-    left: 15px !important;
+    display: contents;
+    margin-left: 5px;
+    border-left: 1px solid #fff;
+}
+
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions .MenuItemLink {
+    position: relative;
+    max-width: 100%;
 }
 
 .SubmenuContainer {
