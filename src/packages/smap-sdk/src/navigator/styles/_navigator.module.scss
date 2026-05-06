@@ -1,3 +1,14 @@
+$blau-navigator: #0088cc;
+$blau-alpha-navigator: #499ec7d4;
+$blanc-navigator: #ededed;
+$groc-navigator: #ecce0d;
+$negre-navigator: #1b1919;
+$navigator-border: 2px solid $negre-navigator;
+$navigator-gray: rgba(85, 90, 94, 0.54);
+$navigator-dark: rgba(14, 13, 13, 0.75);
+$navigator-separator: 3px solid $negre-navigator;
+
+
 .MenuLink {
   cursor: pointer;
   position: relative;
@@ -6,9 +17,15 @@
   height: 100%;
 }
 
+.MenuItemLink {
+  position: relative;
+  padding: 7px 10px;
+}
+
+.MenuItemLink[data-active="true"]:hover,
 .MenuItemLink:hover {
-  background-color: #0a0a0a;
-  color: #fff;
+  background-color: #0a0a0a !important;
+  color: #fff !important;
 }
 
 .iconaDropDown {
@@ -21,9 +38,4 @@
   color: inherit;
   margin-right: 5px;
   display: inline-flex;
-}
-
-.SubmenuContainer {
-  position: relative;
-  display: block;
 }

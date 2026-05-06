@@ -59,8 +59,9 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
                     };
                     
                     return (
-                        <div key={index} className={styles.MenuItemLinkSidebar} data-active={isActive}>
+                        <>
                             <div
+                                key={index}
                                  className={styles.MenuItemLink}
                                  data-active={isActive}
                             >
@@ -71,10 +72,12 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
                             </div>
                             {
                                 isItemOpen && item.options && (
-                                    <MenuItemSubmenu {...submenuProps} />
+                                    <div className={styles.MenuSubmenuOptions} data-render={"SubmenuContainer"}>
+                                        <MenuItemSubmenu {...submenuProps} />
+                                    </div>
                                 )
                             }
-                        </div>
+                        </>
                     );
                 })
             }

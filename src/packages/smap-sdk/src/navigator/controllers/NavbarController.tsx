@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 import Link from "next/link";
 import {isCandidateToActive, MenuItemTypes, NavigatorComponentProps} from "../libs";
 import styles from "../styles/Navbar.module.scss";
-import {MenuItemSubmenu} from "../components";
+import {MenuItemIcon, MenuItemSubmenu} from "../components";
 
 export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
     const pathname = usePathname();
@@ -31,33 +31,44 @@ export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
     return (
         <div className={styles.navigator_navbar}>
             <div ref={navRef} className={styles.ItemNavigator}>
-            {items.map((item, index) => {
-                const isActive = isCandidateToActive(pathname, item.slug);
-                const submenuProps = {
-                    item: item,
-                    onClick: handleLinkClick
-                };
-                return (
-                    <div key={index}
-                         className={styles.MenuItemLink}
-                         data-active={isActive}
-                    >
-                        <Link
-                            href={item.slug}
-                            onClick={(e) => {
-                                if (item.type === MenuItemTypes.ONLY_OPTIONS) {
-                                    e.preventDefault();
-                                }
-                                handleLinkClick(index);
-                            }}
+                {items.map((item, index) => {
+                    const submenuAvailable = openIndex === index && item.options !== undefined;
+                    const arrow = submenuAvailable ? "collapsar" : "desplegar";
+                    const isActive = isCandidateToActive(pathname, item.slug);
+                    const submenuProps = {
+                        item: item,
+                        onClick: handleLinkClick
+                    };
+                    return (
+                        <div key={index}
+                             className={styles.MenuItemLink}
+                             data-active={isActive}
                         >
-                            {item.label}
-                        </Link>
-                        {/* Renderitzar submenú si l'índex coincideix */}
-                        {   openIndex === index && item.options && (<MenuItemSubmenu {...submenuProps}  />)}
-                    </div>
-                )})}
-        </div>
+                            <Link
+                                href={item.slug}
+                                onClick={(e) => {
+                                    if (item.type === MenuItemTypes.ONLY_OPTIONS) {
+                                        e.preventDefault();
+                                    }
+                                    handleLinkClick(index);
+                                }}
+                            >
+                                {item.label}
+                                {/* Renderitzar fletxa indicadora si submenu està disponible */}
+                                {
+                                    item.options && (<>
+                                        &nbsp;<MenuItemIcon iconKey={arrow} />
+                                    </>)
+                                }
+                            </Link>
+                            {/* Renderitzar submenú si les condicions ho determinen */}
+                                {   submenuAvailable && (
+                                    <div className={styles.MenuSubmenuOptions} data-render={"SubmenuContainer"}>
+                                        <MenuItemSubmenu {...submenuProps}  />
+                                    </div>)}
+                        </div>
+                    )})}
+            </div>
         </div>
     );
 };

@@ -12,7 +12,7 @@ export function MenuItemSubmenu(props: SubmenuProps) {
     const {item, onClick} = props;
     
     return (
-        <div className={styles.MenuSubmenuOptions}>
+        <>
             {item.options?.map((option: MenuItem, subIndex: number) => {
                 const isActive = isCandidateToActive(pathname, option.slug);
                 const paginaActiva = "marcadorPaginaActiva";
@@ -35,6 +35,6 @@ export function MenuItemSubmenu(props: SubmenuProps) {
                         </Link>
                     </div>)
             })}
-        </div>
+        </>
     );
 }

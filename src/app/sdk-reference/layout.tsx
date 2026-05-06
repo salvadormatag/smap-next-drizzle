@@ -12,9 +12,7 @@ export default function SdkReferenceLayout({ children }: { children: React.React
     }
     return (
         <main className={"flex min-h-screen"}>
-            <div className="w-64 bg-gray-800 text-white">
-                <NavigatorComponent {...props} />
-            </div>
+            <NavigatorComponent {...props} />
             <div className="flex-1 bg-gray-100 p-4">
                 {children}
             </div>

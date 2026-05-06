@@ -55,7 +55,7 @@ export const LlistatItemsMenuLlocWeb: MenuItem[] = [
  */
 export const LlistatItemsSdkReference: MenuItem[] = [
     {
-        label: "SmapInstants",
+        label: "Mòdul Instants",
         slug: "/sdk-reference/instants",
         icon: "date",
         type: MenuItemTypes.LINK_WITH_OPTIONS,
@@ -87,7 +87,7 @@ export const LlistatItemsSdkReference: MenuItem[] = [
         ]
     },
     {
-        label: "SmapNavigator",
+        label: "Mòdul Navigator",
         slug: "/sdk-reference/navigator",
         icon: "page",
         type: MenuItemTypes.LINK_WITH_OPTIONS,
@@ -107,7 +107,7 @@ export const LlistatItemsSdkReference: MenuItem[] = [
         ]
     },
     {
-        label: "SmapAuth",
+        label: "Mòdul OAuth",
         slug: "/sdk-reference/oauth",
         icon: "page",
         type: MenuItemTypes.LINK_WITH_OPTIONS,
