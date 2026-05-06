@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 import {isCandidateToActive, MenuItemTypes, NavigatorComponentProps} from "../libs";
-import styles from "../styles/navigators.module.css";
+import styles from "../styles/Navbar.module.scss";
 import {MenuItemSubmenu} from "../components";
 
 export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
@@ -29,7 +29,8 @@ export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
     };
     
     return (
-        <div ref={navRef} className={styles.ItemNavigator}>
+        <div className={styles.navigator_navbar}>
+            <div ref={navRef} className={styles.ItemNavigator}>
             {items.map((item, index) => {
                 const isActive = isCandidateToActive(pathname, item.slug);
                 const submenuProps = {
@@ -56,6 +57,7 @@ export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
                         {   openIndex === index && item.options && (<MenuItemSubmenu {...submenuProps}  />)}
                     </div>
                 )})}
+        </div>
         </div>
     );
 };

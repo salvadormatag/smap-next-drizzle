@@ -1,11 +1,11 @@
 "use client"
 
 import React, {useState, useMemo} from 'react';
-import {isCandidateToActive, MenuItemTypes, NavigatorComponentProps} from '../libs';
+import {isCandidateToActive, NavigatorComponentProps} from '../libs';
 import {usePathname} from "next/navigation";
-import styles from "@smap-dev/sdk/navigator/styles/navigators.module.css";
+import styles from "../styles/Sidebar.module.scss";
 import Link from "next/link";
-import {MenuItemIcon, MenuItemSubmenu} from "@smap-dev/sdk/navigator/components";
+import {MenuItemIcon, MenuItemSubmenu} from "../components";
 
 export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     
@@ -41,7 +41,8 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     };
     
     return (
-        <div className={styles.ItemNavigator}>
+        <div className={styles.navigator_sidebar}>
+            <div className={styles.ItemNavigator}>
             {
                 items.map((item, index) => {
                     // Un ítem està obert si l'usuari l'ha obert manualment
@@ -77,6 +78,7 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
                     );
                 })
             }
+        </div>
         </div>
     );
 };

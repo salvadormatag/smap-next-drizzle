@@ -1,6 +1,5 @@
-import styles from "../styles/navigators.module.css";
-import {NavigatorIconsLibrary} from "../libs/NavigatorIconsLibrary";
-import {MenuItemIconProps} from "../libs/navigator.types";
+import styles from "../styles/Commons.module.scss";
+import {MenuItemIconProps, NavigatorIconsLibrary} from "../libs";
 
 export function MenuItemIcon(props: MenuItemIconProps) {
     const key = props.iconKey || "bug"; // key s'infereix com IconKey

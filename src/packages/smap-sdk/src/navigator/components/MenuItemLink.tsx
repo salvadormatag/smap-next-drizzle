@@ -1,14 +1,11 @@
 "use client";
 
-import styles from "../styles/navigators.module.css";
 import Link from "next/link";
-import {MenuItemIcon} from "../components";
 import {usePathname} from "next/navigation";
-import {isCandidateToActive} from "../libs/navigator.utils";
-import {
-    RenderItemNavigatorProps
-} from "@smap-dev/sdk/navigator/libs/navigator.internal.types";
 
+import styles from "../styles/Commons.module.scss";
+import {MenuItemIcon} from "../components";
+import {isCandidateToActive, RenderItemNavigatorProps} from "../libs";
 
 export function MenuItemLink(props: RenderItemNavigatorProps) {
 

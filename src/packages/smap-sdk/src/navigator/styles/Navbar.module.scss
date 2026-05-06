@@ -1,0 +1,39 @@
+@use "navigator.module" as *;
+@use "variables" as v;
+
+.navigator_navbar {
+  border-bottom: v.$navigator-separator;
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  color: v.$navigator-color;
+  background: v.$navigator-gray;
+}
+
+.navigator_navbar .ItemNavigator {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.navigator_navbar .MenuItemLink[data-active="true"]{
+  color: #ededed;
+  background-color: #499ec7d4;
+}
+
+.navigator_navbar .ItemNavigator .MenuSubmenuOptions {
+  z-index: 10;
+  padding: 0;
+  background: #76adc8;
+  position: absolute;
+  width: max-content;
+  left: 0 !important;
+  border: v.$navigator-border;
+}
+
+.navigator_navbar .MenuSubmenuOptions {
+  top: calc(100%);
+  left: calc(100%);
+  border-top: 3px solid #3c2b81 !important;
+}

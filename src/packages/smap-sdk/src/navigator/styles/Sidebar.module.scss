@@ -1,0 +1,38 @@
+@use "navigator.module" as *;
+
+.navigator_sidebar {
+  max-width: 300px;
+}
+
+.navigator_sidebar .ItemNavigator {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions {
+  position: relative;
+  display: contents;
+  margin-left: 5px;
+  border-left: 1px solid #fff;
+}
+
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions .MenuItemLink {
+  position: relative;
+  max-width: 100%;
+}
+
+.navigator_sidebar .MenuSubmenuOptions {
+  top: calc(100%);
+  left: calc(50%) !important;
+}
+
+.navigator_sidebar .MenuItemLink:hover,
+.navigator_sidebar .MenuSubmenuOptions .MenuItemLink:hover {
+  background-color: #e6e3e3;
+  color: #1b1919;
+}
+
+.navigator_sidebar .MenuItemLinkSidebar[data-active="true"]{
+  border: 1px solid #fff;
+}

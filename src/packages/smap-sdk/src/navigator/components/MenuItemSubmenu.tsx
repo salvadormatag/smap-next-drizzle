@@ -1,12 +1,11 @@
 "use client";
-import {usePathname} from "next/navigation";
-import styles from "@smap-dev/sdk/navigator/styles/navigators.module.css";
-import {MenuItem} from "@smap-dev/sdk/navigator";
-import {isCandidateToActive} from "@smap-dev/sdk/navigator/libs/navigator.utils";
-import Link from "next/link";
-import {MenuItemIcon} from "@smap-dev/sdk/navigator/components/MenuItemIcon";
 import React from "react";
-import {SubmenuProps} from "../libs";
+import {usePathname} from "next/navigation";
+import Link from "next/link";
+
+import styles from "../styles/Commons.module.scss";
+import {isCandidateToActive, MenuItem, SubmenuProps} from "../libs";
+import {MenuItemIcon} from "../components";
 
 export function MenuItemSubmenu(props: SubmenuProps) {
     const pathname = usePathname();
