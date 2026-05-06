@@ -66,10 +66,16 @@
     color: #1b1919;
 }
 
-.MenuItemLink[data-active="true"],
-.MenuItemLink[data-parent="true"] {
-    background-color: #e6e3e3;
-    color: #1b1919;
+/*.MenuItemLink[data-active="true"],*/
+/*.MenuItemLink[data-parent="true"] {*/
+/*    background-color: #e6e3e3;*/
+/*    color: #1b1919;*/
+/*}*/
+
+
+.navigator_navbar .MenuItemLink[data-active="true"]{
+    background-color: #055378;
+    color: #f3d724;
 }
 
 /**
