@@ -1,8 +1,9 @@
 import type {Metadata} from "next";
 import {Montserrat} from "next/font/google";
 import "./globals.css";
-import {NavigatorComponent, NavigatorComponentProps} from "@smap-dev/sdk/navigator";
+// import {NavigatorComponent, NavigatorComponentProps} from "@smap-dev/sdk/navigator";
 import {LlistatItemsMenuLlocWeb} from "@/app/lib/ItemsNavigator";
+import {NavigatorComponentProps} from "@smap-dev/sdk";
 
 const montserrat = Montserrat({
   variable: "--font-sistema",

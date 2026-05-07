@@ -1,5 +1,5 @@
 import { SmapValidators } from "../validators";
-import { ErrorCodes, getErrorCode } from "@/packages/smap-sdk/src/errors/ErrorCodes";
+import { ErrorCodes, getErrorCode } from "../errors/ErrorCodes";
 import { SmapLocales } from "./SmapInstantsFormatters";
 
 export enum UnitsDate {

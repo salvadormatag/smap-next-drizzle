@@ -1,4 +1,4 @@
-import {IconKey} from "../libs/NavigatorIconsLibrary";
+import {IconKey} from "./NavigatorIconsLibrary";
 
 /**
  * Conjunt de paràmetres requerits + opcionals pel renderitzat d'un component de navegació.

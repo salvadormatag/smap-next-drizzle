@@ -1,6 +1,4 @@
-import {NavigatorFeatures, MenuItem} from "../libs/navigator.types";
-
-
+import {NavigatorFeatures, MenuItem} from "./navigator.types";
 
 /**
  * Paràmetres que espera el component navigator que renderitza navbar o sidebar.

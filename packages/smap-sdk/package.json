@@ -46,12 +46,26 @@
     "@types/node": "^25.6.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "tsup": "^8.0.0",
+    "tsup": "^8.5.1",
     "typescript": "^5.0.0"
   },
   "exports": {
-    "./navigator": "./src/uix/navigator/index.ts",
-    "./auth": "./src/auth/index.ts",
-    "./instants": "./src/instants/index.ts"
+    "./navigator": {
+      "types": "./dist/uix/navigator/index.d.ts",
+      "import": "./dist/uix/navigator/index.mjs",
+      "require": "./dist/uix/navigator/index.js"
+    },
+
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "import": "./dist/auth/index.mjs",
+      "require": "./dist/auth/index.js"
+    },
+
+    "./instants": {
+      "types": "./dist/instants/index.d.ts",
+      "import": "./dist/instants/index.mjs",
+      "require": "./dist/instants/index.js"
+    }
   }
 }

@@ -6,6 +6,7 @@ import {usePathname} from "next/navigation";
 import styles from "../styles/navigator.module.css";
 import Link from "next/link";
 import {MenuItemIcon, MenuItemSubmenu} from "../components";
+import {RocketIcon} from "../components/RocketIcon";
 
 export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     
@@ -66,7 +67,10 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
                                 data-active={isActive}
                             >
                                 <Link href={item.slug}>
-                                    <MenuItemIcon iconKey={iconLink?.icon || "bug"} isActive={isActive} />
+                                    {isActive
+                                        ? (<RocketIcon size={16} className="text-red-500" />)
+                                        : (<MenuItemIcon iconKey={iconLink?.icon || "bug"} isActive={isActive} />)
+                                    }
                                     {item.label}
                                 </Link>
                             </div>

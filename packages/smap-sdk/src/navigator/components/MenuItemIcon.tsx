@@ -1,6 +1,7 @@
 import styles from "../styles/navigator.module.css";
 import {MenuItemIconProps, NavigatorIconsLibrary} from "../libs";
-import {cn} from "@smap-dev/sdk/libs/utils";
+import {cn} from "../../libs/utils";
+import React from "react";
 
 export function MenuItemIcon(props: MenuItemIconProps) {
     const key = props.iconKey || "bug"; // key s'infereix com IconKey

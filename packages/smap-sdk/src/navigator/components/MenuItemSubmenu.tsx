@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
@@ -9,7 +10,7 @@ import {MenuItemIcon} from "../components";
 
 export function MenuItemSubmenu(props: SubmenuProps) {
     const pathname = usePathname();
-    const {item, onClick, isActive} = props;
+    const {item, onClick} = props;
     
     return (
         <>
