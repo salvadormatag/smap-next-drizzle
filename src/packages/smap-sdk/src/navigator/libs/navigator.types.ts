@@ -65,9 +65,11 @@ export interface MenuItem {
 export interface MenuItemIconProps {
     iconKey: IconKey;
     className?: string;
+    isActive?: boolean | false;
 }
 
 export interface SubmenuProps {
     item: MenuItem;
     onClick?: (index: number) => void;
+    isActive?: boolean | false;
 }

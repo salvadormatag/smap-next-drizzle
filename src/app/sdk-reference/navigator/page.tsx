@@ -6,12 +6,19 @@ export default async function HomePageExemples() {
         instancies: '' +
             '<SmapToolbar items={LlistatItemsMenuLlocWeb} />' +
             '<SmapSidebar items={LlistatItemsMenuLlocWeb} />',
-        interficie: 'export interface MenuItem {\n' +
-            '    label: string;\n' +
-            '    slug: string | "#";\n' +
-            '    options?: MenuItem[];\n' +
-            '    icon?: IconKey | "bug";\n' +
-            '}',
+        interficie: `export interface MenuItem {
+    // Literal a mostrar en la caixa de l'element
+    label: string;
+    // URL relatiu al contingut
+    // (Si el tipus === MenuItemTypes.ONLY_OPTIONS, no es tindrà en compte l'URL i s'aplicarà '#').
+    slug: string;
+    // Tipus de MenuItem
+    type: MenuItemTypes;
+    // Llistat d'opcions (altres MenuItem) de l'ítem
+    options?: MenuItem[];
+    // Opcionalment, pot renderitzar una icona (@heroicons/react/24/outline)
+    icon?: IconKey | "bug";
+}`
     };
 
     return (

@@ -3,13 +3,13 @@ import React from "react";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 
-import styles from "../styles/Commons.module.scss";
+import styles from "../styles/navigator.module.css";
 import {isCandidateToActive, MenuItem, SubmenuProps} from "../libs";
 import {MenuItemIcon} from "../components";
 
 export function MenuItemSubmenu(props: SubmenuProps) {
     const pathname = usePathname();
-    const {item, onClick} = props;
+    const {item, onClick, isActive} = props;
     
     return (
         <>
@@ -24,13 +24,12 @@ export function MenuItemSubmenu(props: SubmenuProps) {
                     <div className={styles.MenuItemLink}
                          key={subIndex}
                          data-active={isActive}
-                         data-renderitzat={"MenuItemLink"}
                     >
                         <Link href={option.slug}
                               className={styles.MenuLink}
                               onClick={() => onClick ? onClick(subIndex) : null}
                         >
-                            <MenuItemIcon iconKey={iconLink?.icon || "bug"} />
+                            <MenuItemIcon iconKey={iconLink?.icon || "bug"} isActive={isActive} />
                             {option.label}
                         </Link>
                     </div>)

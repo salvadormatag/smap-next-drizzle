@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 import {isCandidateToActive, MenuItemTypes, NavigatorComponentProps} from "../libs";
-import styles from "../styles/Navbar.module.scss";
+import styles from "../styles/navigator.module.css";
 import {MenuItemIcon, MenuItemSubmenu} from "../components";
 
 export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
@@ -29,8 +29,8 @@ export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
     };
     
     return (
-        <div className={styles.navigator_navbar}>
-            <div ref={navRef} className={styles.ItemNavigator}>
+        <div ref={navRef} className={styles.navigator_navbar}>
+            <div className={styles.ItemNavigator}>
                 {items.map((item, index) => {
                     const submenuAvailable = openIndex === index && item.options !== undefined;
                     const arrow = submenuAvailable ? "collapsar" : "desplegar";
@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavigatorComponentProps> = ({ items }) => {
                                 {/* Renderitzar fletxa indicadora si submenu està disponible */}
                                 {
                                     item.options && (<>
-                                        &nbsp;<MenuItemIcon iconKey={arrow} />
+                                        &nbsp;<MenuItemIcon iconKey={arrow} isActive={isActive} />
                                     </>)
                                 }
                             </Link>

@@ -93,8 +93,8 @@ export const LlistatItemsSdkReference: MenuItem[] = [
         type: MenuItemTypes.LINK_WITH_OPTIONS,
         options: [
             {
-                label: "Toolbar",
-                slug: "/sdk-reference/navigator/toolbar",
+                label: "Navbar",
+                slug: "/sdk-reference/navigator/navbar",
                 icon: "toolbar",
                 type: MenuItemTypes.SINGLE_LINK,
             },
@@ -113,19 +113,19 @@ export const LlistatItemsSdkReference: MenuItem[] = [
         type: MenuItemTypes.LINK_WITH_OPTIONS,
         options: [
             {
-                label: "Smap2FA",
+                label: "Autenticació 2 pases",
                 slug: "/sdk-reference/oauth/smap-2FA",
                 icon: "page",
                 type: MenuItemTypes.SINGLE_LINK,
             },
             {
-                label: "SmapAuth",
+                label: "Classe SmapAuth",
                 slug: "/sdk-reference/oauth/smap-auth",
                 icon: "page",
                 type: MenuItemTypes.SINGLE_LINK,
             },
             {
-                label: "SmapSession",
+                label: "Gestió de sessions",
                 slug: "/sdk-reference/oauth/sessions",
                 icon: "page",
                 type: MenuItemTypes.SINGLE_LINK,

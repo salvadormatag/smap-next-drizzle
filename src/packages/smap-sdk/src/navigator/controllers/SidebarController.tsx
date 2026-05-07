@@ -3,7 +3,7 @@
 import React, {useState, useMemo} from 'react';
 import {isCandidateToActive, NavigatorComponentProps} from '../libs';
 import {usePathname} from "next/navigation";
-import styles from "../styles/Sidebar.module.scss";
+import styles from "../styles/navigator.module.css";
 import Link from "next/link";
 import {MenuItemIcon, MenuItemSubmenu} from "../components";
 
@@ -42,13 +42,13 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
     
     return (
         <div className={styles.navigator_sidebar}>
-            <div className={styles.ItemNavigator}>
             {
                 items.map((item, index) => {
                     // Un ítem està obert si l'usuari l'ha obert manualment
                     // O si és el que toca per l'URL actual (només en el primer render).
                     const isItemOpen = openIndex === index;
                     const isActive = isCandidateToActive(pathname, item.slug);
+                    const cssItemNavigator = isActive ? styles.ItemNavigatorActive : styles.ItemNavigator;
                     const paginaActiva = "marcadorPaginaActiva";
                     const iconLink = {
                         icon: isActive ? paginaActiva : item.icon,
@@ -56,32 +56,31 @@ export const Sidebar: React.FC<NavigatorComponentProps> = ({ items }) => {
                     };
                     const submenuProps = {
                         item: item,
+                        isActive: isActive
                     };
                     
                     return (
-                        <>
+                        <div className={cssItemNavigator} key={index}>
                             <div
-                                key={index}
-                                 className={styles.MenuItemLink}
-                                 data-active={isActive}
+                                className={styles.MenuItemLink}
+                                data-active={isActive}
                             >
                                 <Link href={item.slug}>
-                                    <MenuItemIcon iconKey={iconLink?.icon || "bug"} />
+                                    <MenuItemIcon iconKey={iconLink?.icon || "bug"} isActive={isActive} />
                                     {item.label}
                                 </Link>
                             </div>
                             {
                                 isItemOpen && item.options && (
-                                    <div className={styles.MenuSubmenuOptions} data-render={"SubmenuContainer"}>
+                                    <div className={styles.MenuSubmenuOptions}>
                                         <MenuItemSubmenu {...submenuProps} />
                                     </div>
                                 )
                             }
-                        </>
+                        </div>
                     );
                 })
             }
-        </div>
         </div>
     );
 };

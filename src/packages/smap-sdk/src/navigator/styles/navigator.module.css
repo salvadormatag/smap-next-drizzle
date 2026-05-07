@@ -1,0 +1,166 @@
+:root {
+    /* colors */
+    --navigator-blue: #0088cc;
+    --navigator-alpha-blue: #0088cc1a;
+    --navigator-blue-selected: #0088cc26;
+    --navigator-clean-blue: #17b2d3;
+    --navigator-night-blue: #1e293b;
+    --navigator-dark-night-blue: #1e293b;
+    --navigator-white: #fdefde;
+    --navigator-break-white: #f8fafc;
+    --navigator-black: #313335;
+    --navigator-white-hover: #ffffff;
+    --navigator-yellow: #f39c33;
+    --navigator-red: #ed2323;
+    --navigator-clean-gray: #94a3b8;
+    --navigator-light-gray: #e7eaef;
+    --navigator-gray: #a8b3c3;
+    --navigator-dark: rgba(14, 13, 13, 0.75);
+    --navigator-darcula: #0f172a;
+
+    /* Borders */
+    --navigator-border: 2px solid var(--navigator-black);
+}
+
+/* Commons */
+.MenuLink {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.MenuItemLink {
+    position: relative;
+    padding: 7px 10px;
+}
+
+.iconaDropDown {
+    font-size: 12px;
+}
+
+.navIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    display: inline-flex;
+}
+
+.navIconActive {
+    color: rgb(251, 191, 36) !important;
+    filter: drop-shadow(-1px 1px 1px #fff);
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.SubmenuContainer {
+    position: relative;
+    display: block;
+}
+
+/* Navbar styles */
+.navigator_navbar .MenuItemLink:hover,
+.navigator_navbar .MenuSubmenuOptions .MenuItemLink:hover {
+    background-color: var(--navigator-break-white);
+    color: var(--navigator-dark-night-blue);
+}
+
+.navigator_navbar {
+    border-bottom: var(--navigator-border);
+    position: relative;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    color: var(--navigator-clean-gray);
+    background: var(--navigator-blue);
+}
+
+.navigator_navbar .ItemNavigator {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.navigator_navbar .MenuItemLink{
+    color: var(--navigator-break-white);
+}
+
+.navigator_navbar .ItemNavigator .MenuItemLink[data-active="true"]{
+    color: var(--navigator-white);
+    background-color: var(--navigator-dark-night-blue);
+    border-right: 1px solid var(--navigator-white);
+    border-left: 1px solid var(--navigator-white);
+}
+
+.navigator_navbar .ItemNavigator .MenuSubmenuOptions {
+    z-index: 10;
+    padding: 0;
+    background: var(--navigator-blue);
+    position: absolute;
+    width: max-content;
+    left: 0 !important;
+    border-top: 1px solid var(--navigator-break-white);
+    border-left: var(--navigator-border);
+    border-right: var(--navigator-border);
+    border-bottom: var(--navigator-border);
+}
+
+.navigator_navbar .MenuSubmenuOptions {
+    top: calc(100%);
+    left: calc(100%);
+}
+
+/* Sidebar styles */
+.navigator_sidebar {
+    max-width: 300px;
+    background: var(--navigator-darcula);
+    color: var(--navigator-gray);
+    width: 16rem;
+    border-right: 2px solid var(--navigator-black);
+}
+
+.navigator_sidebar .MenuLink {
+    left: 15px;
+}
+
+.navigator_sidebar .ItemNavigator,
+.navigator_sidebar .ItemNavigatorActive {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.navigator_sidebar .ItemNavigatorActive{
+    background-color: var(--navigator-dark-night-blue);
+    color: var(--navigator-light-gray);
+    padding-left: 5px;
+}
+
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions {
+    position: relative;
+    display: contents;
+}
+.navigator_sidebar .ItemNavigatorActive .MenuSubmenuOptions {
+    padding-left: 20px;
+}
+
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions .MenuItemLink {
+    position: relative;
+    max-width: 100%;
+    background: transparent;
+    color: var(--navigator-black);
+}
+
+.navigator_sidebar .MenuItemLink:hover,
+.navigator_sidebar .MenuSubmenuOptions .MenuItemLink:hover {
+    background-color: var(--navigator-break-white);
+    color: var(--navigator-dark-night-blue);
+}
+
+.navigator_sidebar .MenuItemLink[data-active="true"],
+.navigator_sidebar .ItemNavigator .MenuSubmenuOptions .MenuItemLink[data-active="true"] {
+    color: rgb(232, 210, 155) !important;
+    background-color: var(--navigator-blue-selected);
+    border-left: 3px solid var(--navigator-blue);
+}
+

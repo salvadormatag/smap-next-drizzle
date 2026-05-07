@@ -1,8 +1,12 @@
-import styles from "../styles/Commons.module.scss";
+import styles from "../styles/navigator.module.css";
 import {MenuItemIconProps, NavigatorIconsLibrary} from "../libs";
+import {cn} from "@smap-dev/sdk/libs/utils";
 
 export function MenuItemIcon(props: MenuItemIconProps) {
     const key = props.iconKey || "bug"; // key s'infereix com IconKey
     const IconComponent = NavigatorIconsLibrary[key];
-    return <IconComponent className={styles.navIcon} />
+    return <IconComponent className={cn(
+        styles.navIcon, // Classe base sempre present
+        props.isActive && styles.navIconActive // El que s'aplica si és actiu
+    )} />
 }
