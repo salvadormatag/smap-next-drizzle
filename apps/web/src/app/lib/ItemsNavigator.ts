@@ -1,4 +1,4 @@
-import {MenuItem, MenuItemTypes} from "@smap-dev/sdk/navigator/libs/navigator.types";
+import {MenuItem, MenuItemTypes} from "@smap-dev/sdk/navigator";
 
 /**
  * Llistat dels ítems que defineixen el contingut global del lloc web

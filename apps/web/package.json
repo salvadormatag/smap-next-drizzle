@@ -19,7 +19,7 @@
     "sdk": "concurrently \"pnpm sdk:dev\" \"pnpm web:dev\""
   },
   "dependencies": {
-    "@smap-dev/sdk": "workspace:packages/*",
+    "@smap-dev/sdk": "workspace:*",
     "@tiptap/core": "^3.11.1",
     "@tiptap/extension-code-block-lowlight": "^3.11.1",
     "@tiptap/extension-document": "^3.11.1",

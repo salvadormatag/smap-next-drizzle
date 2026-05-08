@@ -26,8 +26,7 @@
     "paths": {
       "@/*": [
         "src/*"
-      ],
-      "@smap-dev/sdk/*": ["./packages/smap-sdk/dist/*"]
+      ]
     }
   },
   "include": [

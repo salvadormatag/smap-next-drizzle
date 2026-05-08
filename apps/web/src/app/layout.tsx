@@ -3,7 +3,7 @@ import {Montserrat} from "next/font/google";
 import "./globals.css";
 // import {NavigatorComponent, NavigatorComponentProps} from "@smap-dev/sdk/navigator";
 import {LlistatItemsMenuLlocWeb} from "@/app/lib/ItemsNavigator";
-import {NavigatorComponentProps} from "@smap-dev/sdk";
+import {NavigatorComponentProps} from "@smap-dev/sdk/navigator";
 
 const montserrat = Montserrat({
   variable: "--font-sistema",

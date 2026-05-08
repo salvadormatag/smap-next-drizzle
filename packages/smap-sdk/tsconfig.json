@@ -16,5 +16,22 @@
   "include": [
     "src",
     "global.d.ts"
-  ]
+  ],
+  "exports": {
+    "./navigator": {
+      "types": "./dist/navigator/index.d.ts",
+      "import": "./dist/navigator/index.mjs",
+      "require": "./dist/navigator/index.js"
+    },
+    "./instants": {
+      "types": "./dist/instants/index.d.ts",
+      "import": "./dist/instants/index.mjs",
+      "require": "./dist/instants/index.js"
+    },
+    "./oauth": {
+      "types": "./dist/oauth/index.d.ts",
+      "import": "./dist/oauth/index.mjs",
+      "require": "./dist/oauth/index.js"
+    }
+  }
 }
